@@ -19,7 +19,17 @@ import "../interceptor.dart";
 import "../protocol/transport.dart";
 import "protocol.dart";
 
-/// Transport for the gRPC-web protocol.
+/// Transport for the Connect protocol.
+///
+/// If [useHttpGet] is true, unary RPCs that are side-effect-free are sent with
+/// the GET method.
+///
+/// If [useHttpQuery] is true, unary RPCs that are side-effect-free are sent
+/// with the HTTP QUERY method (RFC 10008) instead of POST. The request is
+/// identical to a POST request except for the method. QUERY replaces POST, not
+/// GET: when both options are enabled, requests that can be sent with GET still
+/// are. A server or intermediary that rejects QUERY surfaces an error, the
+/// request is not retried with POST.
 final class Transport extends ProtocolTransport {
   Transport({
     required String baseUrl,
@@ -27,12 +37,13 @@ final class Transport extends ProtocolTransport {
     required HttpClient httpClient,
     List<Interceptor>? interceptors,
     bool useHttpGet = false,
+    bool useHttpQuery = false,
     Compression? sendCompression,
     List<Compression>? acceptCompressions,
   }) : super(
          baseUrl,
          codec,
-         Protocol(useHttpGet),
+         Protocol(useHttpGet, useHttpQuery: useHttpQuery),
          httpClient,
          interceptors ?? [],
          sendCompression,

@@ -1,3 +1,7 @@
+## Unreleased
+
+- Add the `useHttpQuery` option to the Connect `Transport`. When enabled, side-effect-free unary RPCs are sent with the HTTP QUERY method (RFC 10008) instead of POST. It is off by default, and `useHttpGet` still takes precedence for requests that can be sent with GET.
+
 ## 2.0.1
 
 - Fix generated names for nested messages.

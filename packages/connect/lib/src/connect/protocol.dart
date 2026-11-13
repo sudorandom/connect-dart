@@ -36,8 +36,9 @@ import 'trailer.dart';
 
 final class Protocol implements base.Protocol {
   final bool useHttpGet;
+  final bool useHttpQuery;
 
-  const Protocol(this.useHttpGet);
+  const Protocol(this.useHttpGet, {this.useHttpQuery = false});
 
   @override
   Headers requestHeaders<I, O>(
@@ -66,9 +67,8 @@ final class Protocol implements base.Protocol {
     List<Compression> acceptCompressions,
   ) async {
     final HttpRequest hReq;
-    if (useHttpGet &&
-        req.spec.idempotency == Idempotency.noSideEffects &&
-        codec is StableCodec) {
+    final noSideEffects = req.spec.idempotency == Idempotency.noSideEffects;
+    if (useHttpGet && noSideEffects && codec is StableCodec) {
       hReq = HttpRequest(
         connectGetUrl(req.url, codec, req.message),
         "GET",
@@ -80,10 +80,16 @@ final class Protocol implements base.Protocol {
         req.signal,
       );
     } else {
-      final body = codec.encode(req.message);
+      // HTTP QUERY (RFC 10008) replaces POST, never GET. Response caches
+      // key on the request content, so prefer the stable encoding.
+      final query = useHttpQuery && noSideEffects;
+      final body =
+          query && codec is StableCodec
+              ? codec.stableEncode(req.message)
+              : codec.encode(req.message);
       hReq = HttpRequest(
         req.url,
-        "POST",
+        query ? "QUERY" : "POST",
         req.headers,
         Stream.fromIterable([sendCompression?.encode(body) ?? body]),
         req.signal,

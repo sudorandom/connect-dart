@@ -58,6 +58,7 @@ void main() {
           codec: codec,
           httpClient: httpClient,
           useHttpGet: req.useGetHttpMethod,
+          useHttpQuery: req.useQueryHttpMethod,
         ),
         Protocol.PROTOCOL_GRPC_WEB => grpc_web.Transport(
           baseUrl: baseUrl,

@@ -16,5 +16,6 @@ features:
   supportsH2c: false
   supportsTlsClientCerts: true
   supportsConnectGet: true
+  supportsConnectQuery: true
   supportsHalfDuplexBidiOverHttp1: true
   supportsMessageReceiveLimit: false

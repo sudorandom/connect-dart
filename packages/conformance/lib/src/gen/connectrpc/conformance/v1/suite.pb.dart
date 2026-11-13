@@ -55,6 +55,7 @@ class TestSuite extends $pb.GeneratedMessage {
     $core.bool? reliesOnTlsClientCerts,
     $core.bool? reliesOnConnectGet,
     $core.bool? reliesOnMessageReceiveLimit,
+    $core.bool? reliesOnConnectQuery,
   }) {
     final result = create();
     if (name != null) result.name = name;
@@ -76,6 +77,8 @@ class TestSuite extends $pb.GeneratedMessage {
       result.reliesOnConnectGet = reliesOnConnectGet;
     if (reliesOnMessageReceiveLimit != null)
       result.reliesOnMessageReceiveLimit = reliesOnMessageReceiveLimit;
+    if (reliesOnConnectQuery != null)
+      result.reliesOnConnectQuery = reliesOnConnectQuery;
     return result;
   }
 
@@ -125,6 +128,7 @@ class TestSuite extends $pb.GeneratedMessage {
     ..aOB(10, _omitFieldNames ? '' : 'reliesOnTlsClientCerts')
     ..aOB(11, _omitFieldNames ? '' : 'reliesOnConnectGet')
     ..aOB(12, _omitFieldNames ? '' : 'reliesOnMessageReceiveLimit')
+    ..aOB(13, _omitFieldNames ? '' : 'reliesOnConnectQuery')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -249,6 +253,17 @@ class TestSuite extends $pb.GeneratedMessage {
   $core.bool hasReliesOnMessageReceiveLimit() => $_has(11);
   @$pb.TagNumber(12)
   void clearReliesOnMessageReceiveLimit() => $_clearField(12);
+
+  /// If true, the cases in this suite rely on the Connect protocol over the
+  /// HTTP QUERY method.
+  @$pb.TagNumber(13)
+  $core.bool get reliesOnConnectQuery => $_getBF(12);
+  @$pb.TagNumber(13)
+  set reliesOnConnectQuery($core.bool value) => $_setBool(12, value);
+  @$pb.TagNumber(13)
+  $core.bool hasReliesOnConnectQuery() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearReliesOnConnectQuery() => $_clearField(13);
 }
 
 class TestCase_ExpandedSize extends $pb.GeneratedMessage {
@@ -318,6 +333,7 @@ class TestCase extends $pb.GeneratedMessage {
     $core.Iterable<TestCase_ExpandedSize>? expandRequests,
     $0.ClientResponseResult? expectedResponse,
     $core.Iterable<$1.Code>? otherAllowedErrorCodes,
+    $core.Iterable<$core.String>? otherAllowedErrorMessages,
   }) {
     final result = create();
     if (request != null) result.request = request;
@@ -325,6 +341,8 @@ class TestCase extends $pb.GeneratedMessage {
     if (expectedResponse != null) result.expectedResponse = expectedResponse;
     if (otherAllowedErrorCodes != null)
       result.otherAllowedErrorCodes.addAll(otherAllowedErrorCodes);
+    if (otherAllowedErrorMessages != null)
+      result.otherAllowedErrorMessages.addAll(otherAllowedErrorMessages);
     return result;
   }
 
@@ -353,6 +371,7 @@ class TestCase extends $pb.GeneratedMessage {
         valueOf: $1.Code.valueOf,
         enumValues: $1.Code.values,
         defaultEnumValue: $1.Code.CODE_UNSPECIFIED)
+    ..pPS(5, _omitFieldNames ? '' : 'otherAllowedErrorMessages')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -443,6 +462,16 @@ class TestCase extends $pb.GeneratedMessage {
   /// error is considered conformant, and the test case can pass.
   @$pb.TagNumber(4)
   $pb.PbList<$1.Code> get otherAllowedErrorCodes => $_getList(3);
+
+  /// When expected_response indicates that an error with a message is expected, in
+  /// some cases, the actual error message returned may be flexible. In that case,
+  /// this field provides other acceptable error messages, in addition to the one
+  /// indicated in the expected_response. As long as the actual error's message
+  /// equals any of these, the error is considered conformant, and the test case
+  /// can pass. This field may only be used when expected_response has an error
+  /// with a message.
+  @$pb.TagNumber(5)
+  $pb.PbList<$core.String> get otherAllowedErrorMessages => $_getList(4);
 }
 
 const $core.bool _omitFieldNames =

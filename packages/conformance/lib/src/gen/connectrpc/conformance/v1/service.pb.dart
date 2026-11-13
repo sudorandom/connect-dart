@@ -1093,12 +1093,14 @@ class ConformancePayload_RequestInfo extends $pb.GeneratedMessage {
     $fixnum.Int64? timeoutMs,
     $core.Iterable<$0.Any>? requests,
     ConformancePayload_ConnectGetInfo? connectGetInfo,
+    $core.String? httpMethod,
   }) {
     final result = create();
     if (requestHeaders != null) result.requestHeaders.addAll(requestHeaders);
     if (timeoutMs != null) result.timeoutMs = timeoutMs;
     if (requests != null) result.requests.addAll(requests);
     if (connectGetInfo != null) result.connectGetInfo = connectGetInfo;
+    if (httpMethod != null) result.httpMethod = httpMethod;
     return result;
   }
 
@@ -1124,6 +1126,7 @@ class ConformancePayload_RequestInfo extends $pb.GeneratedMessage {
     ..aOM<ConformancePayload_ConnectGetInfo>(
         4, _omitFieldNames ? '' : 'connectGetInfo',
         subBuilder: ConformancePayload_ConnectGetInfo.create)
+    ..aOS(5, _omitFieldNames ? '' : 'httpMethod')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1190,6 +1193,24 @@ class ConformancePayload_RequestInfo extends $pb.GeneratedMessage {
   void clearConnectGetInfo() => $_clearField(4);
   @$pb.TagNumber(4)
   ConformancePayload_ConnectGetInfo ensureConnectGetInfo() => $_ensure(3);
+
+  /// The HTTP method the server observed for the request, such as "POST",
+  /// "GET", or "QUERY". The value is the exact method token, so "QUERY" is
+  /// uppercase.
+  ///
+  /// Servers that support the Connect protocol over the HTTP QUERY method
+  /// must populate this field for every request. It is only checked for test
+  /// cases that expect a QUERY request, so servers that do not yet populate
+  /// it keep passing all other test cases. Unlike connect_get_info, it is not
+  /// sufficient to merely include an empty message: the value is compared.
+  @$pb.TagNumber(5)
+  $core.String get httpMethod => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set httpMethod($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasHttpMethod() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearHttpMethod() => $_clearField(5);
 }
 
 class ConformancePayload_ConnectGetInfo extends $pb.GeneratedMessage {

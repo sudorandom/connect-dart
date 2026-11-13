@@ -447,9 +447,19 @@ const ConformancePayload_RequestInfo$json = {
       '6': '.connectrpc.conformance.v1.ConformancePayload.ConnectGetInfo',
       '10': 'connectGetInfo'
     },
+    {
+      '1': 'http_method',
+      '3': 5,
+      '4': 1,
+      '5': 9,
+      '9': 1,
+      '10': 'httpMethod',
+      '17': true
+    },
   ],
   '8': [
     {'1': '_timeout_ms'},
+    {'1': '_http_method'},
   ],
 };
 
@@ -472,14 +482,15 @@ const ConformancePayload_ConnectGetInfo$json = {
 final $typed_data.Uint8List conformancePayloadDescriptor = $convert.base64Decode(
     'ChJDb25mb3JtYW5jZVBheWxvYWQSEgoEZGF0YRgBIAEoDFIEZGF0YRJcCgxyZXF1ZXN0X2luZm'
     '8YAiABKAsyOS5jb25uZWN0cnBjLmNvbmZvcm1hbmNlLnYxLkNvbmZvcm1hbmNlUGF5bG9hZC5S'
-    'ZXF1ZXN0SW5mb1ILcmVxdWVzdEluZm8apgIKC1JlcXVlc3RJbmZvEkoKD3JlcXVlc3RfaGVhZG'
+    'ZXF1ZXN0SW5mb1ILcmVxdWVzdEluZm8a3AIKC1JlcXVlc3RJbmZvEkoKD3JlcXVlc3RfaGVhZG'
     'VycxgBIAMoCzIhLmNvbm5lY3RycGMuY29uZm9ybWFuY2UudjEuSGVhZGVyUg5yZXF1ZXN0SGVh'
     'ZGVycxIiCgp0aW1lb3V0X21zGAIgASgDSABSCXRpbWVvdXRNc4gBARIwCghyZXF1ZXN0cxgDIA'
     'MoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlSCHJlcXVlc3RzEmYKEGNvbm5lY3RfZ2V0X2luZm8Y'
     'BCABKAsyPC5jb25uZWN0cnBjLmNvbmZvcm1hbmNlLnYxLkNvbmZvcm1hbmNlUGF5bG9hZC5Db2'
-    '5uZWN0R2V0SW5mb1IOY29ubmVjdEdldEluZm9CDQoLX3RpbWVvdXRfbXMaVgoOQ29ubmVjdEdl'
-    'dEluZm8SRAoMcXVlcnlfcGFyYW1zGAEgAygLMiEuY29ubmVjdHJwYy5jb25mb3JtYW5jZS52MS'
-    '5IZWFkZXJSC3F1ZXJ5UGFyYW1z');
+    '5uZWN0R2V0SW5mb1IOY29ubmVjdEdldEluZm8SJAoLaHR0cF9tZXRob2QYBSABKAlIAVIKaHR0'
+    'cE1ldGhvZIgBAUINCgtfdGltZW91dF9tc0IOCgxfaHR0cF9tZXRob2QaVgoOQ29ubmVjdEdldE'
+    'luZm8SRAoMcXVlcnlfcGFyYW1zGAEgAygLMiEuY29ubmVjdHJwYy5jb25mb3JtYW5jZS52MS5I'
+    'ZWFkZXJSC3F1ZXJ5UGFyYW1z');
 
 @$core.Deprecated('Use errorDescriptor instead')
 const Error$json = {

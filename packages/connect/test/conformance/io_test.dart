@@ -84,6 +84,7 @@ void main() {
           codec: codec,
           httpClient: httpClient,
           useHttpGet: req.useGetHttpMethod,
+          useHttpQuery: req.useQueryHttpMethod,
           sendCompression: compression,
           acceptCompressions: compression != null ? [compression] : [],
         ),

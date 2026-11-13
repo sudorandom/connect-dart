@@ -200,6 +200,7 @@ class ClientCompatRequest extends $pb.GeneratedMessage {
     $core.int? requestDelayMs,
     ClientCompatRequest_Cancel? cancel,
     $1.RawHTTPRequest? rawRequest,
+    $core.bool? useQueryHttpMethod,
   }) {
     final result = create();
     if (testName != null) result.testName = testName;
@@ -223,6 +224,8 @@ class ClientCompatRequest extends $pb.GeneratedMessage {
     if (requestDelayMs != null) result.requestDelayMs = requestDelayMs;
     if (cancel != null) result.cancel = cancel;
     if (rawRequest != null) result.rawRequest = rawRequest;
+    if (useQueryHttpMethod != null)
+      result.useQueryHttpMethod = useQueryHttpMethod;
     return result;
   }
 
@@ -273,6 +276,7 @@ class ClientCompatRequest extends $pb.GeneratedMessage {
         subBuilder: ClientCompatRequest_Cancel.create)
     ..aOM<$1.RawHTTPRequest>(20, _omitFieldNames ? '' : 'rawRequest',
         subBuilder: $1.RawHTTPRequest.create)
+    ..aOB(21, _omitFieldNames ? '' : 'useQueryHttpMethod')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -528,6 +532,20 @@ class ClientCompatRequest extends $pb.GeneratedMessage {
   void clearRawRequest() => $_clearField(20);
   @$pb.TagNumber(20)
   $1.RawHTTPRequest ensureRawRequest() => $_ensure(19);
+
+  /// If protocol indicates Connect and stream type indicates
+  /// Unary, this instructs the client to use the HTTP QUERY method
+  /// (RFC 10008) when making the request. The request is otherwise
+  /// identical to a unary POST request. It is never set together with
+  /// use_get_http_method.
+  @$pb.TagNumber(21)
+  $core.bool get useQueryHttpMethod => $_getBF(20);
+  @$pb.TagNumber(21)
+  set useQueryHttpMethod($core.bool value) => $_setBool(20, value);
+  @$pb.TagNumber(21)
+  $core.bool hasUseQueryHttpMethod() => $_has(20);
+  @$pb.TagNumber(21)
+  void clearUseQueryHttpMethod() => $_clearField(21);
 }
 
 enum ClientCompatResponse_Result { response, error, notSet }

@@ -159,6 +159,13 @@ const ClientCompatRequest$json = {
       '6': '.connectrpc.conformance.v1.RawHTTPRequest',
       '10': 'rawRequest'
     },
+    {
+      '1': 'use_query_http_method',
+      '3': 21,
+      '4': 1,
+      '5': 8,
+      '10': 'useQueryHttpMethod'
+    },
   ],
   '3': [ClientCompatRequest_Cancel$json],
   '8': [
@@ -224,11 +231,12 @@ final $typed_data.Uint8List clientCompatRequestDescriptor = $convert.base64Decod
     'KAoQcmVxdWVzdF9kZWxheV9tcxgSIAEoDVIOcmVxdWVzdERlbGF5TXMSTQoGY2FuY2VsGBMgAS'
     'gLMjUuY29ubmVjdHJwYy5jb25mb3JtYW5jZS52MS5DbGllbnRDb21wYXRSZXF1ZXN0LkNhbmNl'
     'bFIGY2FuY2VsEkoKC3Jhd19yZXF1ZXN0GBQgASgLMikuY29ubmVjdHJwYy5jb25mb3JtYW5jZS'
-    '52MS5SYXdIVFRQUmVxdWVzdFIKcmF3UmVxdWVzdBrCAQoGQ2FuY2VsEkQKEWJlZm9yZV9jbG9z'
-    'ZV9zZW5kGAEgASgLMhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5SABSD2JlZm9yZUNsb3NlU2VuZB'
-    'IvChNhZnRlcl9jbG9zZV9zZW5kX21zGAIgASgNSABSEGFmdGVyQ2xvc2VTZW5kTXMSMAoTYWZ0'
-    'ZXJfbnVtX3Jlc3BvbnNlcxgDIAEoDUgAUhFhZnRlck51bVJlc3BvbnNlc0IPCg1jYW5jZWxfdG'
-    'ltaW5nQgoKCF9zZXJ2aWNlQgkKB19tZXRob2RCDQoLX3RpbWVvdXRfbXM=');
+    '52MS5SYXdIVFRQUmVxdWVzdFIKcmF3UmVxdWVzdBIxChV1c2VfcXVlcnlfaHR0cF9tZXRob2QY'
+    'FSABKAhSEnVzZVF1ZXJ5SHR0cE1ldGhvZBrCAQoGQ2FuY2VsEkQKEWJlZm9yZV9jbG9zZV9zZW'
+    '5kGAEgASgLMhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5SABSD2JlZm9yZUNsb3NlU2VuZBIvChNh'
+    'ZnRlcl9jbG9zZV9zZW5kX21zGAIgASgNSABSEGFmdGVyQ2xvc2VTZW5kTXMSMAoTYWZ0ZXJfbn'
+    'VtX3Jlc3BvbnNlcxgDIAEoDUgAUhFhZnRlck51bVJlc3BvbnNlc0IPCg1jYW5jZWxfdGltaW5n'
+    'QgoKCF9zZXJ2aWNlQgkKB19tZXRob2RCDQoLX3RpbWVvdXRfbXM=');
 
 @$core.Deprecated('Use clientCompatResponseDescriptor instead')
 const ClientCompatResponse$json = {

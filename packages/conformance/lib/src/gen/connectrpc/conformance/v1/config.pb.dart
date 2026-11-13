@@ -133,6 +133,7 @@ class Features extends $pb.GeneratedMessage {
     $core.bool? supportsHalfDuplexBidiOverHttp1,
     $core.bool? supportsConnectGet,
     $core.bool? supportsMessageReceiveLimit,
+    $core.bool? supportsConnectQuery,
   }) {
     final result = create();
     if (versions != null) result.versions.addAll(versions);
@@ -151,6 +152,8 @@ class Features extends $pb.GeneratedMessage {
       result.supportsConnectGet = supportsConnectGet;
     if (supportsMessageReceiveLimit != null)
       result.supportsMessageReceiveLimit = supportsMessageReceiveLimit;
+    if (supportsConnectQuery != null)
+      result.supportsConnectQuery = supportsConnectQuery;
     return result;
   }
 
@@ -197,6 +200,7 @@ class Features extends $pb.GeneratedMessage {
     ..aOB(10, _omitFieldNames ? '' : 'supportsHalfDuplexBidiOverHttp1')
     ..aOB(11, _omitFieldNames ? '' : 'supportsConnectGet')
     ..aOB(12, _omitFieldNames ? '' : 'supportsMessageReceiveLimit')
+    ..aOB(13, _omitFieldNames ? '' : 'supportsConnectQuery')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -322,6 +326,19 @@ class Features extends $pb.GeneratedMessage {
   $core.bool hasSupportsMessageReceiveLimit() => $_has(11);
   @$pb.TagNumber(12)
   void clearSupportsMessageReceiveLimit() => $_clearField(12);
+
+  /// Whether Connect via the HTTP QUERY method is supported (RFC 10008).
+  /// If absent, false is assumed. Unlike supports_connect_get, this defaults
+  /// to false so that implementations that have not adopted QUERY keep passing
+  /// when they upgrade to a version of the test suite that includes it.
+  @$pb.TagNumber(13)
+  $core.bool get supportsConnectQuery => $_getBF(12);
+  @$pb.TagNumber(13)
+  set supportsConnectQuery($core.bool value) => $_setBool(12, value);
+  @$pb.TagNumber(13)
+  $core.bool hasSupportsConnectQuery() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearSupportsConnectQuery() => $_clearField(13);
 }
 
 /// ConfigCase represents a single resolved configuration case. When tests are
